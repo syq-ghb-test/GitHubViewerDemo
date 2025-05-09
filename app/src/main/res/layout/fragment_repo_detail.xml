@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <com.nikidas.demo.githubviewer.ui.common.ErrorLayout
+        android:id="@+id/errorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/contentScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:id="@+id/tvRepoName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RepoName"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="?android:textColorPrimary" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvStars"
+                    android:text="20490 stars"
+                    android:textSize="16sp"
+                    android:textColor="?android:textColorPrimary"
+                    android:layout_marginEnd="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvForks"
+                    android:text="1450 forks"
+                    android:textSize="16sp"
+                    android:textColor="?android:textColorPrimary" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvRepoDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Repo description"
+                android:textSize="16sp"
+                android:textColor="?android:textColorSecondary"
+                android:layout_marginTop="0dp" />
+
+            <TextView
+                android:id="@+id/tvRepoLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="https://repo.url"
+                android:textSize="14sp"
+                android:textColor="?android:textColorSecondary"
+                android:layout_marginTop="8dp" />
+
+            <include layout="@layout/item_repo_entry" android:id="@+id/entryIssues" android:layout_marginStart="0dp"/>
+            <include layout="@layout/item_repo_entry" android:id="@+id/entryReleases" android:layout_marginStart="0dp"/>
+            <include layout="@layout/item_repo_entry" android:id="@+id/entryFiles" android:layout_marginStart="0dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="README.md"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="?android:textColorPrimary" />
+
+            <WebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent" />
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout> 
