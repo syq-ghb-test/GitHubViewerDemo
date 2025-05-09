@@ -1,6 +1,6 @@
 # GitHubViewerDemo
 
-一个支持 GitHub OAuth 登录、仓库浏览、Issue 管理、全局 token 自动注入、UI 状态友好、易于维护的 Android GitHub 客户端。
+一个支持 GitHub OAuth 登录、仓库浏览、Issue 管理、UI 状态友好的 Android GitHub demo。
 
 ## 主要功能
 - GitHub OAuth 登录（WebView 认证，自动保存 access token）
