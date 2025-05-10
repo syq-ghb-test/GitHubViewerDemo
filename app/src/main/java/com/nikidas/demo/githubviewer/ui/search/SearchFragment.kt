@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.nikidas.demo.githubviewer.R
 import com.nikidas.demo.githubviewer.data.remote.GitHubApiService
 import com.nikidas.demo.githubviewer.data.repository.SearchRepository
 import com.nikidas.demo.githubviewer.ui.common.ErrorLayout
@@ -53,6 +54,7 @@ class SearchFragment : Fragment() {
             )
         }
         val recyclerView = RecyclerView(context).apply {
+            id = R.id.recyclerView
             layoutManager = LinearLayoutManager(context)
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,

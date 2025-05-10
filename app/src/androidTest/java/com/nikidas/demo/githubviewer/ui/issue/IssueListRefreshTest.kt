@@ -4,6 +4,7 @@ import androidx.test.espresso.Espresso.*
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.*
 import androidx.test.espresso.matcher.ViewMatchers.*
+import com.nikidas.demo.githubviewer.R
 import com.nikidas.demo.githubviewer.ui.issue.IssueListActivity
 import org.junit.Rule
 import org.junit.Test

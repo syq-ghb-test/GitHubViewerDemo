@@ -1,11 +1,11 @@
+import org.junit.Assert.*
+import org.junit.Test
+
 object TimeUtil {
     fun formatTime(iso: String): String {
         return iso.substring(0, 10)
     }
 }
-
-import org.junit.Assert.*
-import org.junit.Test
 
 class TimeUtilTest {
     @Test

@@ -13,12 +13,14 @@ import com.nikidas.demo.githubviewer.ui.file.RepoFileItem
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
 
-class GitHubApiService {
-    private val context = MyApplication.getInstance()
+class GitHubApiService(
     private val tokenProvider: () -> String? = {
-        context.getSharedPreferences("login_prefs", android.content.Context.MODE_PRIVATE)
+        MyApplication.getInstance()
+            .getSharedPreferences("login_prefs", android.content.Context.MODE_PRIVATE)
             .getString("access_token", null)
     }
+) {
+    private val context = MyApplication.getInstance()
     private val client = OkHttpClient.Builder()
         .addInterceptor(TokenInterceptor(tokenProvider))
         .build()
@@ -229,7 +231,6 @@ class GitHubApiService {
             throw Exception("创建 Issue 失败: code=${response.code}, body=$responseBody")
         }
     }
-// ... existing code ...
 }
 
 // 数据类定义

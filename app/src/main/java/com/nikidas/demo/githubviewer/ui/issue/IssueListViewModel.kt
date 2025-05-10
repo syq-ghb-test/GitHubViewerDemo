@@ -21,7 +21,11 @@ class IssueListViewModel(application: Application) : AndroidViewModel(applicatio
     private val _error = MutableLiveData<String?>()
     val error: LiveData<String?> = _error
 
-    private val api = GitHubApiService()
+    // 默认api，可通过setApi注入mock
+    private var api: GitHubApiService = GitHubApiService()
+    fun setApi(mockApi: GitHubApiService) {
+        this.api = mockApi
+    }
 
     fun loadIssues(owner: String, repo: String) {
         _loading.value = true
@@ -41,5 +45,20 @@ class IssueListViewModel(application: Application) : AndroidViewModel(applicatio
                 _loading.value = false
             }
         }
+    }
+}
+
+class IssueListViewModelFactory(
+    private val application: Application,
+    private val api: GitHubApiService
+) : androidx.lifecycle.ViewModelProvider.Factory {
+    override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(IssueListViewModel::class.java)) {
+            val vm = IssueListViewModel(application)
+            vm.setApi(api)
+            @Suppress("UNCHECKED_CAST")
+            return vm as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 } 
