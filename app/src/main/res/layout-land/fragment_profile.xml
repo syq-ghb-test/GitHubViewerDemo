@@ -5,63 +5,42 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/layoutNotLoggedIn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:id="@+id/layoutLoggedIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:visibility="visible"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView
-            android:id="@+id/tvNotLoggedIn"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Not logged in"
-            android:textSize="18sp"
-            android:textColor="?android:textColorPrimary"
-            android:layout_marginBottom="16dp"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
 
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:text="Login"/>
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                android:layout_marginEnd="24dp"/>
 
-    <LinearLayout
-        android:id="@+id/layoutLoggedIn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+            <TextView
+                android:id="@+id/tvUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username"
+                android:textSize="20sp"
+                android:textColor="?android:textColorPrimary"/>
+        </LinearLayout>
 
-        <ImageView
-            android:id="@+id/ivAvatar"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="12dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher"/>
-
-        <TextView
-            android:id="@+id/tvUsername"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="username"
-            android:textSize="18sp"
-            android:textColor="?android:textColorPrimary"
-            android:layout_marginBottom="16dp"/>
-
+        <!-- Repositories 和 Logout 按钮，和竖屏类似 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -100,5 +79,34 @@
                 android:text="Logout"
                 android:layout_marginTop="16dp"/>
         </LinearLayout>
+    </LinearLayout>
+
+    <!-- 未登录视图（和竖屏一致，居中即可） -->
+    <LinearLayout
+        android:id="@+id/layoutNotLoggedIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvNotLoggedIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not logged in"
+            android:textSize="18sp"
+            android:textColor="?android:textColorPrimary"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Login"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

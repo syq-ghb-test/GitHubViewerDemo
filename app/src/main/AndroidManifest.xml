@@ -19,6 +19,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:configChanges="screenSize|keyboardHidden"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,31 +29,41 @@
         <activity
             android:name=".ui.detail.DetailActivity"
             android:exported="false"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="Repository Details" />
-        <activity android:name=".ui.file.FileListActivity" />
-        <activity android:name=".ui.file.FilePreviewActivity" />
+        <activity
+            android:name=".ui.file.FileListActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity
+            android:name=".ui.file.FilePreviewActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity
             android:name=".ui.profile.LoginActivity"
             android:exported="true"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="Login">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:scheme="${applicationId}"    
+                    android:scheme="${applicationId}"
                     android:host="oauth2callback" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.repositories.RepositoriesActivity"
             android:exported="false"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="Repositories" />
         <activity
             android:name=".ui.issue.IssueListActivity"
             android:exported="false"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="Issues" />
-        <activity android:name=".ui.issue.CreateIssueActivity" />
+        <activity
+            android:name=".ui.issue.CreateIssueActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
     </application>
 
 </manifest>
